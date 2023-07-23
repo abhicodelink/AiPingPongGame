@@ -4,6 +4,8 @@ var RWristX = 0;
 var RWristY = 0;
 var RWristScore = 0;
 
+var game_status = "";
+
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -25,6 +27,7 @@ var ball = {
 }
 
 function setup(){
+
   var canvas =  createCanvas(700,600);
   canvas.parent('canvas');
   video = createCapture(VIDEO);
@@ -34,6 +37,11 @@ function setup(){
   poseNet.on('pose', gotPoses);
 }
 
+function startGame(){
+  game_status = "start";
+  document.getElementById('status').innerHTML = "Game Is Loaded";
+
+}
 
 function draw(){
 
@@ -82,6 +90,10 @@ function draw(){
       fill(255,0,0);
       stroke(0,0,0);
       circle(RWristX,RWristY,20)
+    }
+
+    if (game_status === "start"){
+
     }
 }
 
